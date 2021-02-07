@@ -1,0 +1,38 @@
+#loading{
+    display: none;
+}
+
+.meal-item{    
+    width: 21%;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(128, 128, 128, 0.307);
+    transition: transform .4s ease-in-out;
+}
+
+.meal-item img{
+    width: 100%;
+}
+
+.meal-item p {
+    padding-left: 10px;
+    padding-top: 10px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.meal-item:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+#showIngredients img{
+    width: 100%;
+}
+
+.dialog-content{
+    margin-top: 1rem;
+}
+
+#notFoundAlert{
+    display: none;
+}
