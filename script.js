@@ -1,6 +1,4 @@
-
-
-const networkCall = () => {
+let networkCall = () => {
     const searchedFoodName = document.getElementById('inputSearch').value;
     const foodItemDiv = document.getElementById('all-meals');
     foodItemDiv.innerHTML = ""
@@ -27,13 +25,13 @@ const processData = (foodResults) =>{
 const showNotFoundAlert = () =>{
     const alert = document.getElementById('notFoundAlert');
     alert.style.display = 'block';
+
     setTimeout(() => {
         alert.style.display = 'none';        
     }, 2500);
 }
 
 const updateUI = foodItem =>{
-    const foodItemDiv = document.getElementById('all-meals');
     const mealItem = document.createElement('div');
     mealItem.className = 'meal-item m-3';
     mealItem.onclick = () => {showIngredients(foodItem)}
@@ -48,17 +46,19 @@ const updateUI = foodItem =>{
 
     mealItem.appendChild(mealThumbnail);
     mealItem.appendChild(mealName);
+
+    const foodItemDiv = document.getElementById('all-meals');
     foodItemDiv.appendChild(mealItem);
 
 }
 
 const showIngredients =  foodItem =>{
     let ingredientData = [];
-    for(let i = 1; i < 17; i++){
+    for(let i = 1; i < 20   ; i++){
         let ingredient = "strIngredient"+i;
         let strMeasure = "strMeasure"+i;
 
-        if(foodItem[strMeasure].length == 0 || foodItem[strMeasure] == ' '){continue;}
+        if(foodItem[ingredient] == '' || foodItem[ingredient] == ' '){continue;}
         ingredientData.push(foodItem[strMeasure] + " " + foodItem[ingredient])
     }
 
@@ -85,5 +85,4 @@ const loading = dispaly =>{
 // Handling Search Button Event
 const btnSearch = document.getElementById('btnSearch');
 btnSearch.addEventListener('click', networkCall)
-
 networkCall();
